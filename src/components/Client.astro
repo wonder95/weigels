@@ -1,0 +1,17 @@
+---
+import * as prismicH from '@prismicio/helpers';
+import { Debug } from 'astro/components';
+import { Image } from '@astrojs/image/components';
+
+const {name, logo, description} = Astro.props;
+
+const renderedName = prismicH.asHTML(name);
+const renderedDescription = prismicH.asHTML(description);
+
+---
+<!-- <Debug {renderedDescription} /> -->
+<div class="mt">
+    <h3 set:html={renderedName}></h3>
+    <Image src={logo.url} width={logo.dimensions.width} height={logo.dimensions.height}></Image>
+    <div set:html={renderedDescription}></div>
+</div>

@@ -1,0 +1,36 @@
+import Prismic from '@prismicio/client';
+
+const apiEndpoint = 'https://weigels-custom-laser-engravng.prismic.io/api/v2';
+
+const Client = new Prismic.Client(apiEndpoint);
+
+export function getService(slug) {
+    return Client.getByUID('service', slug);
+};
+
+export async function getFrontPage() {
+    const client = await Client.getByType('front_page');
+    // return Client.getByType('front_page');
+    return client;
+    
+};
+
+export async function getAllServices() {
+    const services = await Client.getByType("service"); 
+    // console.log('MyServices:', services)
+    return services;
+};
+
+export function getAboutPage() {
+    return Client.getSingle('about');
+}
+
+export async function getAllTechnologies() {
+    const technologies = await Client.getByType("technology")
+    return technologies;
+}
+
+export async function getAllClients() {
+    const clients = await Client.getByType("logo")
+    return clients;
+}

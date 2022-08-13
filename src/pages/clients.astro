@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Client from "../components/Client.astro"
+import { Debug } from 'astro/components';
+import * as prismicH from '@prismicio/helpers';
+
+import {getAllClients} from '../prismic.js';
+
+const clients = await getAllClients();
+const {results} = clients;
+---
+<Layout title="Clients - Weigel's Custom Laser Engraving">
+    <h1 class="font-bold">Clients</h1>
+    <div>
+        {results.map((client) => {
+            return <Client 
+                name={client.data.name}
+                logo={client.data.logo}
+                description={client.data.description}
+            />
+        })}
+    </div>
+    <!-- <Debug {results} /> -->
+</Layout>

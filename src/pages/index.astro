@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Debug } from 'astro/components';
+import * as prismicH from '@prismicio/helpers';
+
+import {getFrontPage} from '../prismic.js';
+
+const fp = await getFrontPage();
+const {data} = fp.results[0];
+
+const headerText = prismicH.asHTML(data.header_text);
+const textItem1 = prismicH.asHTML(data.text_item_1);
+const textItem2 = prismicH.asHTML(data.text_item_2);
+const textItem3 = prismicH.asHTML(data.text_item_3);
+// console.log(headerText)
+
+---
+ <Layout title="Home - Weigel's Custom Laser Engraving">
+<!--	<main>
+		<h1>Welcome to <span class="text-gradient">Weigel's Custom Laser Engraving</span></h1>
+		<p class="instructions">
+			Check out the <code>src/pages</code> directory to get started.<br/>
+			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
+		</p>
+		<ul role="list" class="link-card-grid">
+			<Card href="https://docs.astro.build/" title="Documentation" body="Learn how Astro works and explore the official API docs." /> 
+			<Card href="https://astro.build/integrations/" title="Integrations" body="Supercharge your project with new frameworks and libraries." /> 
+			<Card href="https://astro.build/themes/" title="Themes" body="Explore a galaxy of community-built starter themes." /> 
+			<Card href="https://astro.build/chat/" title="Chat" body="Come say hi to our amazing Discord community. ❤️" />
+		</ul>
+	</main> -->
+	<h1>Weigels</h1>
+	<div set:html={textItem1}></div>
+	<div set:html={textItem2}></div>
+	<div set:html={textItem3}></div>
+</Layout>
+
+
+<!-- <Debug {data} /> -->

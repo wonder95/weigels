@@ -1,0 +1,15 @@
+---
+import * as prismicH from '@prismicio/helpers';
+import { Debug } from 'astro/components';
+
+const {name, description} = Astro.props;
+
+const renderedName = prismicH.asHTML(name);
+const renderedDescription = prismicH.asHTML(description);
+
+---
+<!-- <Debug {name} /> -->
+<section class="">
+    <h1 set:html={renderedName}></h1>
+    <div set:html={renderedDescription}></div>
+</section>

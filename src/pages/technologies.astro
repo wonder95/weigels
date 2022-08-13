@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Technology from "../components/Technology.astro"
+import { Debug } from 'astro/components';
+import * as prismicH from '@prismicio/helpers';
+
+import {getAllTechnologies} from '../prismic.js';
+
+const technologies = await getAllTechnologies();
+const {results} = technologies;
+---
+<Layout title="Technologies - Weigel's Custom Laser Engraving">
+<h1 class="font-bold">Technologies</h1>
+<div>
+    {results.map((technology) => {
+        // <Debug {technology.data} />
+        return <Technology 
+                title={technology.data.title}
+                description={technology.data.description}
+                image={technology.data.image}
+        />
+    })}
+</div>
+<Debug {results} />
+</Layout>
