@@ -1,8 +1,8 @@
-import Prismic from '@prismicio/client';
+import * as prismic from '@prismicio/client';
 
 const apiEndpoint = 'https://weigels-custom-laser-engravng.prismic.io/api/v2';
 
-const Client = new Prismic.Client(apiEndpoint);
+const Client = new prismic.Client(apiEndpoint);
 
 export function getService(slug) {
     return Client.getByUID('service', slug);
