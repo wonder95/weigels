@@ -7,7 +7,7 @@ import { lookup } from 'mrmime';
 import sharp$1 from 'sharp';
 import fs from 'node:fs/promises';
 /* empty css                                                                         */import * as prismicH from '@prismicio/helpers';
-import Prismic from '@prismicio/client';
+import * as Prismic from '@prismicio/client';
 import { getHighlighter as getHighlighter$1 } from 'shiki';
 /* empty css                                       */import path, { extname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
