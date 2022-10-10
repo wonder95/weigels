@@ -1,7 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
----
-<Layout title="Blog - Weigel's Custom Laser Engraving">
-<h1>Blog</h1>
+import BlogCard from "../components/BlogCard.astro";
+import { Debug } from 'astro/components';
+import * as prismicH from '@prismicio/helpers';
 
+import {getAllBlogs} from '../prismic.js';
+
+const blogs = await getAllBlogs();
+const {results} = blogs;
+---
+<Layout title="Blogs - Weigel's Custom Laser Engraving">
+    <h2 class="font-bold text-4xl">Blogs</h2>
+    <div>
+        {results.map((blog) => {
+            return <BlogCard 
+                title={blog.data.title}
+                teaser={blog.data.teaser}
+            />
+        })}
+    </div>
+<!-- <Debug {results} /> -->
 </Layout>

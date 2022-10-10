@@ -1,0 +1,17 @@
+---
+import * as prismicH from '@prismicio/helpers';
+import { Debug } from 'astro/components';
+
+const {title, teaser} = Astro.props;
+
+const renderedTeaser = prismicH.asHTML(teaser);
+
+---
+<!-- <Debug {name} /> -->
+<article>
+    <div class="mt-4 rounded shadow-lg overflow-hidden max-w-sm p-3">
+        <h1 class="font-bold text-4xl">{title}</h1>
+        <div class="mt-4" set:html={renderedTeaser}></div>
+    </div>
+    <!-- <Debug {title}/> -->
+</article>

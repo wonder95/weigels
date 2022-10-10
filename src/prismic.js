@@ -34,3 +34,9 @@ export async function getAllClients() {
     const clients = await Client.getByType("logo")
     return clients;
 }
+
+export async function getAllBlogs() {
+    const blogs = await Client.getByType("blog")
+    // console.log(blogs)
+    return blogs;
+}

@@ -1,0 +1,15 @@
+---
+import * as prismicH from '@prismicio/helpers';
+import { Debug } from 'astro/components';
+
+const {title, body} = Astro.props;
+
+const renderedTitle = prismicH.asHTML(title);
+const renderedBody = prismicH.asHTML(body);
+
+---
+<!-- <Debug {name} /> -->
+<article class="prose prose-li:list-disc">
+    <h1 set:html={renderedTitle}></h1>
+    <div set:html={renderedBody}></div>
+</article>
