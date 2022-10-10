@@ -13,6 +13,7 @@
     "@astrojs/netlify": "^1.0.1",
     "@astrojs/tailwind": "^0.2.1",
     "@astrojs/vue": "^0.1.4",
+    "@tailwindcss/typography": "^0.5.4",
     "astro": "^1.0.3",
     "vue": "^3.2.33"
   },
