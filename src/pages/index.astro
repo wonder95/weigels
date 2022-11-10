@@ -1,39 +1,116 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { Debug } from 'astro/components';
-import * as prismicH from '@prismicio/helpers';
+import Layout from "../layouts/Layout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import Client from "../components/Client.astro";
+import Technology from "../components/Technology.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from '@astrojs/image/components';
+import { Debug } from "astro/components";
+import * as prismicH from "@prismicio/helpers";
 
-import {getFrontPage} from '../prismic.js';
+import {
+  getAllServices,
+  getFrontPage,
+  getAllClients,
+  getAllTechnologies,
+} from "../prismic.js";
 
-const fp = await getFrontPage();
-const {data} = fp.results[0];
+const servicesResults = await getAllServices();
+const services = servicesResults.results;
 
-const headerText = prismicH.asHTML(data.header_text);
-const textItem1 = prismicH.asHTML(data.text_item_1);
-const textItem2 = prismicH.asHTML(data.text_item_2);
-const textItem3 = prismicH.asHTML(data.text_item_3);
-// console.log(headerText)
+const clientsResults = await getAllClients();
+const clients = clientsResults.results;
 
+const technologiesResults = await getAllTechnologies();
+const technologies = technologiesResults.results;
+
+const fpResults = await getFrontPage();
+const fp = fpResults.results[0].data;
+
+const textItem1 = prismicH.asHTML(fp.text_item_1);
+const textItem2 = prismicH.asHTML(fp.text_item_2);
+const textItem3 = prismicH.asHTML(fp.text_item_3);
+const Image1 = fp.image_1;
 ---
- <Layout title="Home - Weigel's Custom Laser Engraving">
-<!--	<main>
-		<h1>Welcome to <span class="text-gradient">Weigel's Custom Laser Engraving</span></h1>
-		<p class="instructions">
-			Check out the <code>src/pages</code> directory to get started.<br/>
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card href="https://docs.astro.build/" title="Documentation" body="Learn how Astro works and explore the official API docs." /> 
-			<Card href="https://astro.build/integrations/" title="Integrations" body="Supercharge your project with new frameworks and libraries." /> 
-			<Card href="https://astro.build/themes/" title="Themes" body="Explore a galaxy of community-built starter themes." /> 
-			<Card href="https://astro.build/chat/" title="Chat" body="Come say hi to our amazing Discord community. ❤️" />
-		</ul>
-	</main> -->
-	<h1>Weigels</h1>
-	<div set:html={textItem1}></div>
-	<div set:html={textItem2}></div>
-	<div set:html={textItem3}></div>
-</Layout>
 
+<Layout title="Home - Weigel's Custom Laser Engraving">
+  <!-- Clients -->
+  <section>
+    <div class="flex justify-center">
+      <h3>Our Clients</h3>
+    </div>
+    <div class="flex align-middle mt-4">
+      {
+        clients.map((client) => {
+          return (
+            <Client
+              name={client.data.name}
+              logo={client.data.logo}
+              description={client.data.description}
+            />
+          );
+        })
+      }
+    </div>
+  </section>
+
+  <section>
+    <div class="mt-4 flex justify-between">
+      {
+        services.map((service) => {
+          return (
+            <ServiceCard
+              name={service.data.name}
+              subtitle={service.data.cardsubtitle}
+            />
+          );
+        })
+      }
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="bg-gray-200 mt-10 p-8">
+    <h2 class="text-4xl">Who We Serve</h2>
+    <div class="flex gap-3 mt-5">
+      <div class="flex-1">
+        <div set:html={textItem1}></div>
+		<div class="mt-3" set:html={textItem2}></div>
+      </div>
+	  <div class="flex-1">
+		<div set:html={textItem3}></div>
+	  </div>
+	  <div class="flex-1">
+		<Image src={Image1.url} width={Image1.dimensions.width} height={Image1.dimensions.height}></Image>
+	  </div>
+      <!-- <Debug {textItem1}></Debug> -->
+    </div>
+  </section>
+
+  <!-- Technologies -->
+  <section class="mt-10 p-8">
+
+    <h2 class="text-4xl">Our Technology</h2>
+    <div>
+      {technologies.map((technology, index) => {
+          return <Technology 
+            title={technology.data.title}
+            description={technology.data.description}
+            image={technology.data.image}
+            index={index}
+        />
+      })}
+    </div>
+  </section>
+
+  <section class="bg-gray-200 mt-10 p-8">
+	   <Contact />
+  </section>
+
+  <footer class="mt-10 p-8 bg-gray-800">
+      <Footer></Footer>
+  </footer>
+</Layout>
 
 <!-- <Debug {data} /> -->

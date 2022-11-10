@@ -1,13 +1,18 @@
 ---
+import {getFrontPage} from '../prismic.js';
+
+import { Debug } from 'astro/components';
 import Header from '../components/Header.astro';
 import Navbar from '../components/Navbar.astro';
+
+const frontPageResults = await getFrontPage();
+const frontPage = frontPageResults.results;
 
 export interface Props {
 	title: string;
 }
 
 const { title } = Astro.props as Props;
-
 ---
 
 <!DOCTYPE html>
@@ -19,12 +24,15 @@ const { title } = Astro.props as Props;
 	<title>{title}</title>
 </head>
 <body>
-    <Header></Header>
 	<Navbar></Navbar>
-  	<slot />
+    <Header
+	    image={frontPage[0].data.header_image}
+	></Header>
+
+	<main class="container mx-auto max-w-7xl">
+  	    <slot />
+    </main>
+
+<!-- <Debug {frontPage} /> -->
 </body>
 </html>
-
-<style>
-
-</style>

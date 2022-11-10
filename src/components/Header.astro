@@ -1,20 +1,21 @@
 ---
-
+import { Image } from '@astrojs/image/components';
+import { Debug } from 'astro/components';
+const {image} = Astro.props;
 ---
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="relative bg-indigo-800">
   <div class="absolute inset-0">
-    <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100" alt="">
-    <div class="absolute inset-0 bg-indigo-800 mix-blend-multiply" aria-hidden="true"></div>
+    <!-- <Image class="w-full h-full object-cover" src={image.url} width={image.dimensions.width} alt="Weigel Custom Laser Engraving header background"></Image> -->
+    <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1656231988738-2d3f67aab8fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920" alt=""><img class="w-full h-full object-cover" src="https://imagesimages.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100" alt="">
+    <!-- <img class="w-full h-full object-cover" src="../../public/unsplash-laser.jpg" width="1920" height="10"> -->
+    <!-- <div class="absolute inset-0 bg-indigo-800 mix-blend-multiply" aria-hidden="true"></div> -->
   </div>
-  <div class="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-    <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">Weigel's Custom Laser Engraving</h1>
-    <p class="mt-6 text-xl text-indigo-100 max-w-3xl">We have met the needs of Manufacturers, Fabricators,
-      Installers, Inventors, and Machine Shops for over 22 Years.</p>
-      
-       
-      
-      <p class="mt-6 text-xl text-indigo-100 max-w-3xl">In Oregon and across the United States.</p>
+  <div class="relative max-w-7xl mx-auto px-4 sm:py-32 sm:px-6 lg:px-8">
+    <h1 class="text-4xl tracking-tight text-white sm:text-5xl lg:text-5xl">Laser services in Oregon and across the United States</h1>
+    <p class="mt-6 text-xl text-indigo-100 max-w-3xl">22 years experience providing high quality laser cutting and engraving services.</p>
+    <button type="button" class="inline-flex items-center rounded-md border border-transparent bg-red-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 mt-4">Contact Us</button>
+    
   </div>
 </div>
 

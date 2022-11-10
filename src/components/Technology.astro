@@ -3,15 +3,16 @@ import * as prismicH from '@prismicio/helpers';
 import { Debug } from 'astro/components';
 import { Image } from '@astrojs/image/components';
 
-const {title, description, image} = Astro.props;
+const {title, description, image, index} = Astro.props;
 
-const renderedName = prismicH.asHTML(title);
+const renderedName = prismicH.asText(title);
 const renderedDescription = prismicH.asHTML(description);
 
 ---
-<!-- <Debug {name} /> -->
-<section class="mt">
-    <h2 set:html={renderedName}></h2>
-    <div set:html={renderedDescription}></div>
-    <Image src={image.url} width={image.dimensions.width} height={image.dimensions.height}></Image>
-</section>
+<div class="mt-5 flex">
+    <div>
+        <h2 class="font-bold text-lg" set:html={renderedName}></h2>
+        <div class="flex-1" set:html={renderedDescription}></div>
+    </div>
+    <Image class:list={['basis-1/4 self-center' , index === 0 && 'order-first']} src={image.url} width={image.dimensions.width} height={image.dimensions.height}></Image>
+</div>

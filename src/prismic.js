@@ -10,14 +10,12 @@ export function getService(slug) {
 
 export async function getFrontPage() {
     const client = await Client.getByType('front_page');
-    // return Client.getByType('front_page');
     return client;
     
 };
 
 export async function getAllServices() {
     const services = await Client.getByType("service"); 
-    // console.log('MyServices:', services)
     return services;
 };
 
