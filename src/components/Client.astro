@@ -9,9 +9,5 @@ const renderedName = prismicH.asHTML(name);
 const renderedDescription = prismicH.asHTML(description);
 
 ---
-<!-- <Debug {renderedDescription} /> -->
-<div class="mt">
-    <!-- <h3 set:html={renderedName}></h3> -->
-    <Image src={logo.url} width={logo.dimensions.width} height={logo.dimensions.height}></Image>
-    <!-- <div set:html={renderedDescription}></div> -->
-</div>
+<!-- <Debug {logo.small} /> -->
+<Image class="basis-1/2" src={logo.small.url} width={logo.small.dimensions.width} height={logo.small.dimensions.height}></Image>

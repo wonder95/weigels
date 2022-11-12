@@ -38,9 +38,9 @@ const Image1 = fp.image_1;
   <!-- Clients -->
   <section>
     <div class="flex justify-center">
-      <h3>Our Clients</h3>
+      <h3 class="font-bold text-xl">Our Clients</h3>
     </div>
-    <div class="flex align-middle mt-4">
+    <div class="flex items-center gap-5">
       {
         clients.map((client) => {
           return (
@@ -56,13 +56,14 @@ const Image1 = fp.image_1;
   </section>
 
   <section>
-    <div class="mt-4 flex justify-between">
+    <div class="mt-2 flex justify-between">
       {
         services.map((service) => {
           return (
             <ServiceCard
               name={service.data.name}
               subtitle={service.data.cardsubtitle}
+              image={service.data.image}
             />
           );
         })
@@ -76,21 +77,20 @@ const Image1 = fp.image_1;
     <div class="flex gap-3 mt-5">
       <div class="flex-1">
         <div set:html={textItem1}></div>
-		<div class="mt-3" set:html={textItem2}></div>
+		    <div class="mt-3" set:html={textItem2}></div>
       </div>
 	  <div class="flex-1">
-		<div set:html={textItem3}></div>
+		    <div set:html={textItem3}></div>
 	  </div>
 	  <div class="flex-1">
-		<Image src={Image1.url} width={Image1.dimensions.width} height={Image1.dimensions.height}></Image>
+		    <Image src={Image1.url} width={Image1.dimensions.width} height={Image1.dimensions.height}></Image>
 	  </div>
       <!-- <Debug {textItem1}></Debug> -->
     </div>
   </section>
 
   <!-- Technologies -->
-  <section class="mt-10 p-8">
-
+  <section class="p-8">
     <h2 class="text-4xl">Our Technology</h2>
     <div>
       {technologies.map((technology, index) => {
@@ -104,11 +104,11 @@ const Image1 = fp.image_1;
     </div>
   </section>
 
-  <section class="bg-gray-200 mt-10 p-8">
+  <section class="bg-gray-200 p-8">
 	   <Contact />
   </section>
 
-  <footer class="mt-10 p-8 bg-gray-800">
+  <footer class="bg-gray-800 py-10 pl-12">
       <Footer></Footer>
   </footer>
 </Layout>
