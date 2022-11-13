@@ -7,8 +7,8 @@ const {image} = Astro.props;
 <div class="relative bg-indigo-800">
   <div class="absolute inset-0">
     <!-- <Image class="w-full h-full object-cover" src={image.url} width={image.dimensions.width} alt="Weigel Custom Laser Engraving header background"></Image> -->
-    <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1656231988738-2d3f67aab8fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920" alt=""><img class="w-full h-full object-cover" src="https://imagesimages.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100" alt="">
-    <!-- <img class="w-full h-full object-cover" src="../../public/unsplash-laser.jpg" width="1920" height="10"> -->
+    <img class="w-full h-full object-cover" src={image.url} alt="">
+    <!-- <img class="w-full h-full object-cover" src="../../public/header2.jpg" width="1920"> -->
     <!-- <div class="absolute inset-0 bg-indigo-800 mix-blend-multiply" aria-hidden="true"></div> -->
   </div>
   <div class="relative max-w-7xl mx-auto px-4 sm:py-32 sm:px-6 lg:px-8">
