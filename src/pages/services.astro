@@ -10,12 +10,13 @@ const servicesResults = await getAllServices();
 const services = servicesResults.results;
 ---
 <Layout title="Services - Weigel's Custom Laser Engraving">
-    <h1 class="font-bold">Services</h1>
     <div>
-        {services.map((service) => {
+        {services.map((service, index) => {
             return <Service 
                 name={service.data.name}
+                subtitle={service.data.cardsubtitle}
                 description={service.data.description}
+                index={index}
             />
         })}
     </div>
