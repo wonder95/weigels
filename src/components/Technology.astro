@@ -14,5 +14,5 @@ const renderedDescription = prismicH.asHTML(description);
         <h2 class="font-bold text-lg" set:html={renderedName}></h2>
         <div class="flex-1" set:html={renderedDescription}></div>
     </div>
-    <Image class:list={['basis-1/4 self-center' , index === 0 && 'order-first']} src={image.url} width={image.dimensions.width} height={image.dimensions.height}></Image>
+    <Image class:list={['basis-1/4 self-center' , index !== 0 && 'order-first']} src={image.url} width={image.dimensions.width} height={image.dimensions.height}></Image>
 </div>

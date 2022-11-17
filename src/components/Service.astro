@@ -9,7 +9,7 @@ const renderedDescription = prismicH.asHTML(description);
 
 ---
 <!-- <Debug {index} /> -->
-<section class:list={['my-5', index % 2 === 0 && 'bg-gray-200']}>
+<section class:list={['p-8', index % 2 !== 0 && 'bg-gray-200']}>
     <h2 class="text-5xl" set:text={renderedName}></h2>
     <p class="font-bold text-2xl my-4">{subtitle}</p>
     <div class="prose prose-li:list-disc" set:html={renderedDescription}></div>
