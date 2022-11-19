@@ -2,20 +2,35 @@
 import { Image } from '@astrojs/image/components';
 import { Debug } from 'astro/components';
 const {image} = Astro.props;
+
+const path = Astro.url.pathname;
+
+let mainText = ''
+let subText = '';
+switch (path) {
+  case '/about':
+    mainText = 'Serving the Portland Area for 22 Years';
+    subText = 'A family business'
+    break;
+  case '/services':
+    mainText = 'Services'
+    subText = 'Premium laser engraving services for aluinum - steel - plastic'
+    break;
+  default:
+    mainText = 'Laser services in Oreong and across the United States'
+    subText = '22 years experience providing high quality laser cutting and engraving services.'  
+}
+
 ---
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="relative bg-indigo-800">
   <div class="absolute inset-0">
-    <!-- <Image class="w-full h-full object-cover" src={image.url} width={image.dimensions.width} alt="Weigel Custom Laser Engraving header background"></Image> -->
     <img class="w-full h-full object-cover" src={image.url} alt="">
-    <!-- <img class="w-full h-full object-cover" src="../../public/header2.jpg" width="1920"> -->
-    <!-- <div class="absolute inset-0 bg-indigo-800 mix-blend-multiply" aria-hidden="true"></div> -->
   </div>
   <div class="relative max-w-7xl mx-auto px-4 sm:py-32 sm:px-6 lg:px-8">
-    <h1 class="text-4xl tracking-tight text-white sm:text-5xl lg:text-5xl">Laser services in Oregon and across the United States</h1>
-    <p class="mt-6 text-xl text-indigo-100 max-w-3xl">22 years experience providing high quality laser cutting and engraving services.</p>
+    <h1 class="text-4xl tracking-tight text-white sm:text-5xl lg:text-5xl">{mainText}</h1>
+    <p class="mt-6 text-xl text-indigo-100 max-w-3xl">{subText}</p>
     <button type="button" class="inline-flex items-center rounded-md border border-transparent bg-red-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 mt-4">Contact Us</button>
-    
   </div>
 </div>
 
