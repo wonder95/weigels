@@ -9,6 +9,8 @@ const {data} = about;
 const aboutText = prismicH.asHTML(data.about_text);
 ---
 <Layout title="About - Weigel's Custom Laser Engraving">
-<h1>About Us</h1>
-<div set:html={aboutText}></div>
+    <section class="container mx-auto max-w-7xl">
+      <h1 class="prose text-4xl mb-4">About Us</h1>
+      <div class="prose" set:html={aboutText}></div>
+    </section>
 </Layout>

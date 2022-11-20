@@ -4,6 +4,7 @@ import {getFrontPage} from '../prismic.js';
 import { Debug } from 'astro/components';
 import Header from '../components/Header.astro';
 import Navbar from '../components/Navbar.astro';
+import Navbar2 from '../components/Navbar2.astro';
 
 const frontPageResults = await getFrontPage();
 const frontPage = frontPageResults.results;
@@ -20,7 +21,7 @@ const { title } = Astro.props as Props;
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	<title>{title}</title>
 </head>
 <body>
@@ -29,10 +30,8 @@ const { title } = Astro.props as Props;
 	    image={frontPage[0].data.header_image}
 	></Header>
 
-	<main class="container mx-auto max-w-7xl">
+	<main class="">
   	    <slot />
     </main>
-
-<!-- <Debug {frontPage} /> -->
 </body>
 </html>

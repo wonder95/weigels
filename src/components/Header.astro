@@ -16,8 +16,12 @@ switch (path) {
     mainText = 'Services'
     subText = 'Premium laser engraving services for aluinum - steel - plastic'
     break;
+  case '/contact':
+    mainText = 'Contact Us';
+    subText = 'What can we do for you?';
+    break;
   default:
-    mainText = 'Laser services in Oreong and across the United States'
+    mainText = 'Laser services in Oregon and across the United States'
     subText = '22 years experience providing high quality laser cutting and engraving services.'  
 }
 
@@ -30,7 +34,7 @@ switch (path) {
   <div class="relative max-w-7xl mx-auto px-4 sm:py-32 sm:px-6 lg:px-8">
     <h1 class="text-4xl tracking-tight text-white sm:text-5xl lg:text-5xl">{mainText}</h1>
     <p class="mt-6 text-xl text-indigo-100 max-w-3xl">{subText}</p>
-    <button type="button" class="inline-flex items-center rounded-md border border-transparent bg-red-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 mt-4">Contact Us</button>
+    <a href="/contact" class="inline-block p-6 bg-red-600 rounded-md border border-transparent px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 mt-4">Contact</a>
   </div>
 </div>
 

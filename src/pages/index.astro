@@ -36,7 +36,7 @@ const Image1 = fp.image_1;
 
 <Layout title="Home - Weigel's Custom Laser Engraving">
   <!-- Clients -->
-  <section>
+  <section class="max-w-7xl mx-auto">
     <div class="flex justify-center">
       <h3 class="font-bold text-xl">Our Clients</h3>
     </div>
@@ -55,8 +55,8 @@ const Image1 = fp.image_1;
     </div>
   </section>
 
-  <section>
-    <div class="mt-2 flex justify-between">
+  <section class="max-w-7xl mx-auto">
+    <div class="mt-2 flex justify-between mx-auto max-7-xl">
       {
         services.map((service) => {
           return (
@@ -72,35 +72,39 @@ const Image1 = fp.image_1;
   </section>
 
   <!-- Services -->
-  <section class="bg-gray-200 mt-10 p-8 w-full">
-    <h2 class="text-4xl">Who We Serve</h2>
-    <div class="flex gap-3 mt-5">
+  <section class="bg-gray-200 mt-10 p-8">
+    <div class="container mx-auto max-w-7xl">
+      <h2 class="text-4xl font-bold">Who We Serve</h2>
+      <div class="flex gap-3 mt-5">
+        <div class="flex-1">
+          <div class="prose" set:html={textItem1}></div>
+          <div class="mt-3 prose" set:html={textItem2}></div>
+        </div>
       <div class="flex-1">
-        <div class="prose" set:html={textItem1}></div>
-		    <div class="mt-3 prose" set:html={textItem2}></div>
+          <div class="prose prose-li:list-disc prose-li:my-0" set:html={textItem3}></div>
       </div>
-	  <div class="flex-1">
-		    <div class="prose prose-li:list-disc prose-li:my-0" set:html={textItem3}></div>
-	  </div>
-	  <div class="flex-1">
-		    <Image src={Image1.url} width={Image1.dimensions.width} height={Image1.dimensions.height}></Image>
-	  </div>
-      <!-- <Debug {textItem1}></Debug> -->
+      <div class="flex-1">
+          <Image src={Image1.url} width={Image1.dimensions.width} height={Image1.dimensions.height}></Image>
+      </div>
+        <!-- <Debug {textItem1}></Debug> -->
+      </div>
     </div>
   </section>
 
   <!-- Technologies -->
   <section class="p-8">
-    <h2 class="text-4xl">Our Technology</h2>
-    <div>
-      {technologies.map((technology, index) => {
-          return <Technology 
-            title={technology.data.title}
-            description={technology.data.description}
-            image={technology.data.image}
-            index={index}
-        />
-      })}
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold">Our Technology</h2>
+      <div>
+        {technologies.map((technology, index) => {
+            return <Technology 
+              title={technology.data.title}
+              description={technology.data.description}
+              image={technology.data.image}
+              index={index}
+          />
+        })}
+      </div>
     </div>
   </section>
 
@@ -109,7 +113,7 @@ const Image1 = fp.image_1;
   </section>
 
   <footer class="bg-gray-800 py-10 pl-12">
-      <Footer></Footer>
+      <Footer />
   </footer>
 </Layout>
 
