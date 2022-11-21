@@ -3,6 +3,7 @@ import {getFrontPage} from '../prismic.js';
 
 import { Debug } from 'astro/components';
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
 import Navbar2 from '../components/Navbar2.astro';
 
@@ -33,5 +34,9 @@ const { title } = Astro.props as Props;
 	<main class="">
   	    <slot />
     </main>
+
+	<footer class="bg-gray-800 py-10 pl-12">
+		<Footer />
+	</footer>
 </body>
 </html>
