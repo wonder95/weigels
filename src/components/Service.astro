@@ -6,13 +6,13 @@ const {name, subtitle, description, index} = Astro.props;
 
 const renderedName = prismicH.asText(name);
 const renderedDescription = prismicH.asHTML(description);
-
+const anchor = prismicH.asText(name).replaceAll(' ', '');
 ---
-<!-- <Debug {index} /> -->
+<!-- <Debug {anchor} /> -->
 <section class:list={['p-8', index % 2 !== 0 && 'bg-gray-200']}>
   <div class="container mx-auto max-w-7xl">
-    <h2 class="text-5xl" set:text={renderedName}></h2>
-    <p class="font-bold text-2xl my-4">{subtitle}</p>
-    <div class="prose prose-li:list-disc prose-xl max-w-7xl" set:html={renderedDescription}></div>
+     <a id={anchor}><h2 class="text-5xl" set:text={renderedName}></h2></a>
+     <p class="font-bold text-2xl my-4">{subtitle}</p>
+     <div class="prose prose-li:list-disc prose-xl max-w-7xl" set:html={renderedDescription}></div>
   </div>
 </section>
