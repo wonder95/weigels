@@ -1,6 +1,4 @@
 ---
-import { Image } from '@astrojs/image/components';
-import { Debug } from 'astro/components';
 const {image} = Astro.props;
 
 const path = Astro.url.pathname;
@@ -26,7 +24,6 @@ switch (path) {
 }
 
 ---
-<!-- This example requires Tailwind CSS v2.0+ -->
 <div class="relative bg-indigo-800">
   <div class="absolute inset-0">
     <img class="w-full h-full object-cover" src={image.url} alt="">

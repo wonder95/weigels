@@ -75,7 +75,7 @@ const Image1 = fp.image_1;
   <section class="bg-gray-200 mt-2 sm:mt-10 p-8">
     <div class="container mx-auto max-w-7xl">
       <h2 class="text-5xl">Who We Serve</h2>
-      <div class="sm:flex gap-3 mt-5">
+      <div class="sm:flex gap-3 mt-6">
         <div class="flex-1">
           <div class="prose" set:html={textItem1}></div>
           <div class="mt-3 prose" set:html={textItem2}></div>
@@ -83,7 +83,7 @@ const Image1 = fp.image_1;
       <div class="flex-1">
           <div class="prose prose-li:list-disc prose-li:my-0" set:html={textItem3}></div>
       </div>
-      <div class="flex-1">
+      <div class="flex-none pt-3">
           <Image src={Image1.url} width={Image1.dimensions.width} height={Image1.dimensions.height}></Image>
       </div>
         <!-- <Debug {textItem1}></Debug> -->
