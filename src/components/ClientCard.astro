@@ -1,0 +1,15 @@
+---
+import * as prismicH from '@prismicio/helpers';
+import { Debug } from 'astro/components';
+import { Image } from '@astrojs/image/components';
+
+const {name, logo} = Astro.props;
+
+const renderedName = prismicH.asHTML(name);
+
+---
+<!-- <Debug {logo} /> -->
+<div>
+    <Image class="basis-1/2" src={logo.large.url} width={logo.large.dimensions.width} height={logo.large.dimensions.height} alt={logo.large.alt}></Image>
+
+</div>
