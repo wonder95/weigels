@@ -8,7 +8,7 @@ const about = await getAboutPage();
 const {data} = about;
 const aboutText = prismicH.asHTML(data.about_text);
 ---
-<Layout title="About - Weigel's Custom Laser Engraving">
+<Layout title="eigel's | Laser Marking Services | About Us">
     <section class="container mx-auto max-w-7xl p-8 mb-8">
       <h1 class="prose text-5xl mb-4">About Us</h1>
       <div class="prose prose-strong:text-2xl prose-xl max-w-7xl" set:html={aboutText}></div>

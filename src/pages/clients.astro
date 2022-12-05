@@ -9,10 +9,10 @@ import {getAllClients} from '../prismic.js';
 const clients = await getAllClients();
 const {results} = clients;
 ---
-<Layout title="Clients - Weigel's Custom Laser Engraving">
+<Layout title="Weigel's | Laser Marking Services | Our Clients">
     <section class="container mx-auto max-w-7xl m-4">
         <div class="flex justify-center mb-4">
-            <h3 class="prose text-5xl">Our Clients</h3>
+            <h3 class="prose text-5xl">A Few of Our Clients</h3>
           </div>
         <div class="px-2 sm:px-0 sm:grid sm:grid-cols-5 sm:gap-2 items-center">
             {results.map((client) => {

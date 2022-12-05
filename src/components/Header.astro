@@ -7,8 +7,8 @@ let mainText = ''
 let subText = '';
 switch (path) {
   case '/about':
-    mainText = 'Serving the Portland Area for 22 Years';
-    subText = 'A family business'
+    mainText = 'Serving Organizations who need a Quality Laser Mark for 22 Years';
+    subText = ''
     break;
   case '/services':
     mainText = 'Services'
@@ -16,7 +16,7 @@ switch (path) {
     break;
   case '/contact':
     mainText = 'Contact Us';
-    subText = 'What can we do for you?';
+    subText = 'Helping organizations obtain a quality mark for 22 years.';
     break;
   default:
     mainText = 'Delivering a Quality Mark for 22 Years'
@@ -30,8 +30,8 @@ switch (path) {
   </div>
   <div class="relative max-w-7xl mx-auto px-4 sm:py-32 sm:px-6 lg:px-8">
     <h1 class="text-4xl tracking-tight text-white sm:text-5xl lg:text-5xl">{mainText}</h1>
-    <p class="mt-6 text-xl text-indigo-100 max-w-3xl">{subText}</p>
-    <a href="/contact" class="inline-block p-6 bg-red-600 rounded-md border border-transparent px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 mt-4 mb-3 sm:mb-0">Contact</a>
+    <p class="mt-6 text-xl text-indigo-100 max-w-[46rem]">{subText}</p>
+    {path !== '/contact' && <a href="/contact" class="inline-block p-6 bg-red-600 rounded-md border border-transparent px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 mt-4 mb-3 sm:mb-0">Contact</a>}
   </div>
 </div>
 

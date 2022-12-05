@@ -9,7 +9,7 @@ import {getAllServices} from '../prismic.js';
 const servicesResults = await getAllServices();
 const services = servicesResults.results;
 ---
-<Layout title="Services - Weigel's Custom Laser Engraving">
+<Layout title="Weigel's | Laser Marking Services | Aluminum, Steel, and Plastic">
     <div>
         {services.map((service, index) => {
             return <Service 

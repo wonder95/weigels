@@ -24,7 +24,12 @@ export function getAboutPage() {
 }
 
 export async function getAllTechnologies() {
-    const technologies = await Client.getByType("technology")
+    const technologies = await Client.getByType("technology", {
+        orderings: {
+            field: 'document.first_publication_date',
+            direction: 'asc'
+        }
+    })
     return technologies;
 }
 

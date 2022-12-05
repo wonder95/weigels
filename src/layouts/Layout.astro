@@ -5,10 +5,29 @@ import { Debug } from 'astro/components';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
-import Navbar2 from '../components/Navbar2.astro';
 
 const frontPageResults = await getFrontPage();
 const frontPage = frontPageResults.results;
+const path = Astro.url.pathname;
+let metaDescription = '';
+
+switch (path) {
+	case '/about':
+		metaDescription = "Our shop has met the needs of commercial customers who need a quality laser mark for over 22 years. Weigel's is a multi-generational family-owned business."
+        break;
+	case '/services':
+		metaDescription="We work with manufacturers, fabricators, installers, inventors, and machine shops who need a quality laser mark on Aluminum, Steel, or Plastic.";
+		break;
+	case '/contact':
+		metaDescription="Contact us to learn how we can help your organization obtain a quality laser mark - on-time and at a fair price.";		
+        break;
+	case '/clients':
+		metaDescription="Whether you are a production manager, shop foreman, inventor, engineer, or machine shop owner, we can provide you with a quality laser mark at a fair price.";
+		break;
+	default:
+		metaDescription="We work with Manufacturers, Fabricators, Installers, Inventors, and Machine Shops who need a better laser mark and shorter lead times at a reasonable cost."
+		break;		
+}        
 
 export interface Props {
 	title: string;
@@ -22,6 +41,7 @@ const { title } = Astro.props as Props;
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
+	<meta name="description" content={metaDescription}>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	<title>{title}</title>
 </head>
