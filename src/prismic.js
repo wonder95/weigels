@@ -23,6 +23,10 @@ export function getAboutPage() {
     return Client.getSingle('about');
 }
 
+export function getMetaPage() {
+    return Client.getSingle('meta');
+}
+
 export async function getAllTechnologies() {
     const technologies = await Client.getByType("technology", {
         orderings: {
