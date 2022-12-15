@@ -1,8 +1,11 @@
 import * as prismic from '@prismicio/client';
+import * as dotenv from 'dotenv'
+
+dotenv.config({path:"./.env"})
 
 const apiEndpoint = 'https://weigels-custom-laser-engravng.prismic.io/api/v2';
 
-const Client = new prismic.Client(apiEndpoint, { accessToken: import.meta.env.PRISMIC_ACCESS_TOKEN });
+const Client = new prismic.Client(apiEndpoint, { accessToken: process.env.PRISMIC_ACCESS_TOKEN});
 // const Client = new prismic.Client(apiEndpoint);
 
 export function getService(slug) {
