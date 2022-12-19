@@ -9,8 +9,8 @@ const renderedName = prismicH.asText(title);
 const renderedDescription = prismicH.asHTML(description);
 
 ---
-<div class="mt-5 sm:flex">
-    <div>
+<div class="mt-5 sm:grid sm:grid-cols-2 sm:gap-4">
+    <div class="px-3">
         <h2 class="prose font-bold text-lg" set:html={renderedName}></h2>
         <div class="prose flex-1" set:html={renderedDescription}></div>
     </div>
